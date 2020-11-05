@@ -1,14 +1,29 @@
 //feature-1
+import React,{useState} from "react";
 import './App.css';
+import jdata from "./data.json";
+import Products from "./components/Products";
 
-function App() {
+const App = () => {
+
+  const [data,setData] =useState({products:jdata.products,
+  size:"",
+  sort:""});
+
   return (
     <div className="grid-container">
       <header>        
         <a href="/">React Shopping Cart</a>
       </header>
       <main>
-        Shopping List
+        <div className="content">
+          <div className="main">
+          <Products data={data.products}/>  
+          </div>
+          <div className="sidebar">
+          Cart Item
+          </div>
+        </div>        
       </main>
       <footer>
         All Rights Reserved...
